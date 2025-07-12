@@ -1,17 +1,19 @@
-# Diffusion-TS: Interpretable Diffusion for General Time Series Generation
+# SSD-GIF: A State Space based Diffusion Model for Long-Term Wireless Traffic Generation, Imputation, and Forecasting
 
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Y-debug-sys/Diffusion-TS/blob/main/LICENSE) 
 <img src="https://img.shields.io/badge/python-3.8-blue">
 <img src="https://img.shields.io/badge/pytorch-2.0-orange">
 
-> **Abstract:** Denoising diffusion probabilistic models (DDPMs) are becoming the leading paradigm for generative models. It has recently shown breakthroughs in audio synthesis, time series imputation and forecasting. In this paper, we propose Diffusion-TS, a novel diffusion-based framework that generates multivariate time series samples of high quality by using an encoder-decoder transformer with disentangled temporal representations, in which the decomposition technique guides Diffusion-TS to capture the semantic meaning of time series while transformers mine detailed sequential information from the noisy model input. Different from existing diffusion-based approaches, we train the model to directly reconstruct the sample instead of the noise in each diffusion step, combining a Fourier-based loss term. Diffusion-TS is expected to generate time series satisfying both interpretablity and realness. In addition, it is shown that the proposed Diffusion-TS can be easily extended to conditional generation tasks, such as forecasting and imputation, without any model changes. This also motivates us to further explore the performance of Diffusion-TS under irregular settings. Finally, through qualitative and quantitative experiments, results show that Diffusion-TS achieves the state-of-the-art results on various realistic analyses of time series. 
-
-Diffusion-TS is a diffusion-based framework that generates general time series samples both conditionally and unconditionally. As shown in Figure 1, the framework contains two parts: a sequence encoder and an interpretable decoder which decomposes the time series into seasonal part and trend part. The trend part contains the polynomial regressor and extracted mean of each block output. For seasonal part, we reuse trigonometric representations based on Fourier series. Regarding training, sampling and more details, please refer to [our paper](https://openreview.net/pdf?id=4h1apFjO99) in ICLR 2024. 
+> **Abstract:** Wireless Traffic (WT) analysis is crucial for network planning, network resource allocation, user behavior prediction, etc., and has received widespread attention recently. 
+However, existing methods only focus on short-term pattern analysis with regular and complete data, while ignoring the fact that traffic data is not always available, or may be available but incomplete, especially for long-term periods.
+To cope with this, in this paper, we focus on large-scale, long-term irregular WT data, and proposes to capture the macroscopic variation patterns of WT by unifying and enhancing the Generation, Imputation, and Forecasting (GIF) tasks.
+In detail, we propose a unified state-space-based diffusion model to implement long-term WT-GIF tasks (SSD-GIF) by manipulating different guidance signals, including a trend-season decomposition mechanism to improve the model's performance and interpretability, and a self-guided training procedure based on Fourier reconstruction loss to efficiently implement the diffusion process.
+Then, we compare the proposed method to various state-of-the-art methods on large-scale WT datasets. Extensive experimental results show that the proposed SSD-GIF outperforms those existing methods, with an average of 44\%, 6\% and 5\% performance improvement on generation, imputation, and forecasting tasks, respectively.
 
 <p align="center">
-  <img src="figures/fig1.jpg" alt="">
+  <img src="figs/scene_v3.jpg" alt="">
   <br>
-  <b>Figure 1</b>: Overall Architecture of Diffusion-TS.
+  <b>Figure 1</b>: Overall Architecture of SSD-GIF.
 </p>
 
 
@@ -90,24 +92,11 @@ After sampling, synthetic data and orginal data are stored in `.npy` file format
 </p>
 
 
-## Authors
-
-* Paper Authors : Xinyu Yuan, Yan Qiao
-
-* Code Author : Xinyu Yuan
-
-* Contact : yxy5315@gmail.com
-
 
 ## Citation
 If you find this repo useful, please cite our paper via
 ```bibtex
-@article{yuan2024diffusion,
-  title={Diffusion-TS: Interpretable Diffusion for General Time Series Generation},
-  author={Yuan, Xinyu and Qiao, Yan},
-  journal={arXiv preprint arXiv:2403.01742},
-  year={2024}
-}
+The citation will coming soon!
 ```
 
 
