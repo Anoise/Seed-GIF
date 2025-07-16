@@ -1,5 +1,5 @@
 model:
-  target: Models.interpretable_diffusion.gaussian_diffusion.Diffusion_TS
+  target: Models.gaussian_diffusion.Diffusion_TS
   params:
     net: Trans
     seq_len: 36

@@ -32,7 +32,6 @@ def cosine_beta_schedule(timesteps, s=0.008):
     betas = 1 - (alphas_cumprod[1:] / alphas_cumprod[:-1])
     return torch.clip(betas, 0, 0.999)
 
-
 class Diffusion_TS(nn.Module):
     def __init__(
             self,

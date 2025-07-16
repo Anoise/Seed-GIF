@@ -49,6 +49,7 @@ class CustomDataset(Dataset):
         if proportion>0:
             train, inference = self.__getsamples(self.data, proportion, seed)
             self.samples = train if period == 'train' else inference
+            self.targets = self.samples
         else:
             self.samples, self.targets = self.__getwindows(self.data, seq_len, pred_len)
             print(self.samples.shape, 'samples shape ...')
