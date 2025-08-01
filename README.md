@@ -15,12 +15,12 @@
 
 
 
-> 📖 **Intro:**  In this repo, we focus on large-scale, long-term WT data, and proposes to capture the macroscopic variation patterns of WT by unifying and enhancing the Generation, Imputation, and Forecasting (GIF) tasks. In detail, we propose a unified State-space-enhanced encoder-decoder diffusion model (Seed) to implement long-term WT-GIF tasks by manipulating different guidance signals. Then, we compare the proposed method to various state-of-the-art methods on large-scale WT datasets.
+> 📖 **Intro:**  In this repo, we focus on large-scale, long-term WT data, and proposes to capture the macroscopic variation patterns of WT by unifying and enhancing the Generation, Imputation, and Forecasting (GIF) tasks. In detail, we propose a unified State-space-enhanced encoder-decoder diffusion model (Seed) to implement long-term GIF tasks by manipulating different guidance signals. Then, we compare the proposed method to various state-of-the-art methods on large-scale WT datasets.
 
 <p align="center">
   <img src="figs/scene_v3.jpg" alt="">
   <br>
-  <b>Figure 1</b>: Network nodes often encounter data inaccessibility or loss due to privacy protection measures, transmission instability, and storage limitations. WT Generation, Imputation, and Forecasting (WT-GIF) can cope well with these issues. 
+  <b>Figure 1</b>: Network nodes often encounter data inaccessibility or loss due to privacy protection measures, transmission instability, and storage limitations. WT Generation, Imputation, and Forecasting (GIF) can cope well with these issues. 
 </p>
 
 ## 🌟 1. Contributions
@@ -54,118 +54,67 @@ python main.py --name {name} --config_file {config.yaml} --gpu 0 --train
 <details>
  <summary> 🚩 Details of Running the Code </summary>
 
-### SIS-IN
+### SMS
 
 #### Generation
 
 ```
-python main.py --name SMS-IN --config_file configs/sms_in.yaml --gpu 0
+python main.py --name SMS --config_file configs/sms.yaml --gpu 0
 ```
 
 #### Forcasting
 
 - Training
 ```
-python main.py --name SMS-IN --config_file configs/sms_in.yaml --gpu 0 --train --mode predict
+python main.py --name SMS --config_file configs/sms.yaml --gpu 0 --train --mode predict
 ```
 
 - Testing
 ```
-python main.py --name SMS-IN --config_file configs/sms_in.yaml --gpu 0 --sample 1 --mode predict
+python main.py --name SMS --config_file configs/sms.yaml --gpu 0 --sample 1 --mode predict
 ```
 
 - Testing with --missing_ratio
 ```
-python main.py --name SMS-IN --config_file configs/sms_in.yaml --gpu 0 --sample 1 --mode predict --missing_ratio 0.8
+python main.py --name SMS --config_file configs/sms.yaml --gpu 0 --sample 1 --mode predict --missing_ratio 0.8
 ```
 
 #### Imputation
 
 - Training
 ```
-python main.py --name SMS-IN --config_file configs/sms_in.yaml --gpu 0 --train --mode infill
+python main.py --name SMS --config_file configs/sms.yaml --gpu 0 --train --mode infill
 ```
 
 - Testing
 ```
-python main.py --name SMS-IN --config_file configs/sms_in.yaml --gpu 0 --sample 1 --mode infill --missing_ratio 0.2
+python main.py --name SMS --config_file configs/sms.yaml --gpu 0 --sample 1 --mode infill --missing_ratio 0.2
 ```
 
-### SIS-OUT
+### Call
 
 #### Forcasting
 
 - Training
 ```
-python main.py --name SMS-OUT --config_file configs/sms_out.yaml --gpu 1 --train --mode predict
-```
-
-test
-```
-python main.py --name SMS-OUT --config_file configs/sms_out.yaml --gpu 1 --sample 1 --mode predict
-```
-
-#### Imputation
-
-- Training
-```
-python main.py --name SMS-OUT --config_file configs/sms_out.yaml --gpu 1 --train --mode infill
-```
-- Testing
-```
-python main.py --name SMS-OUT --config_file configs/sms_out.yaml --gpu 1 --sample 1 --mode infill --missing_ratio 0.2
-```
-
-### Call-IN
-
-#### Forcasting
-
-- Training
-```
-python main.py --name Call-IN --config_file configs/call_in.yaml --gpu 2 --train --mode predict
+python main.py --name Call --config_file configs/call.yaml --gpu 2 --train --mode predict
 ```
 
 - Testing
 test
 ```
-python main.py --name Call-IN --config_file configs/call_in.yaml --gpu 2 --sample 1 --mode predict
+python main.py --name Call --config_file configs/call.yaml --gpu 2 --sample 1 --mode predict
 ```
 
 #### Imputation
 
 - Training
 ```
-python main.py --name Call-IN --config_file configs/call_in.yaml --gpu 2 --train --mode infill
+python main.py --name Call --config_file configs/call.yaml --gpu 2 --train --mode infill
 ```
 - Testing
 ```
-python main.py --name Call-IN --config_file configs/call_in.yaml --gpu 2 --sample 1 --mode infill --missing_ratio 0.2
-```
-
-
-### Call-OUT
-
-#### Forcasting
-
-- Training
-```
-python main.py --name Call-OUT --config_file configs/call_out.yaml --gpu 3 --train --mode predict
-```
-
-- Testing
-```
-python main.py --name Call-OUT --config_file configs/call_out.yaml --gpu 3 --sample 1 --mode predict
-```
-
-#### Imputation
-
-- Training
-```
-python main.py --name Call-OUT --config_file configs/call_out.yaml --gpu 3 --train --mode infill
-```
-- Testing
-```
-python main.py --name Call-OUT --config_file configs/call_out.yaml --gpu 3 --sample 1 --mode infill --missing_ratio 0.2
+python main.py --name Call --config_file configs/call.yaml --gpu 2 --sample 1 --mode infill --missing_ratio 0.2
 ```
 
 ### Internet
