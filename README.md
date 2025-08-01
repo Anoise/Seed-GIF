@@ -45,7 +45,7 @@ git clone git@github.com:Anoise/Seed-GIF.git
 ```
 
 ### 🚀 3) Training on Milano Dataset
-Go to the directory "Seed-GIF/", we'll find that the bash scripts are all in the 'scripts' folder, like this:
+Go to the directory "Seed-GIF/", then run the code like this:
 
  ```
 python main.py --name {name} --config_file {config.yaml} --gpu 0 --train
