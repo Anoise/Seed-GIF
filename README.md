@@ -185,7 +185,7 @@ To better observe the patterns in the generated data, we visualized the generate
 
 Seed achieves the consistent SOTA performance across all datasets and prediction length configurations.
 
-
+<div align=center><img src="figs/imputation.png"></div>
 
 <div align=center><img src="figs/imputation_vis.jpg"></div>
 
