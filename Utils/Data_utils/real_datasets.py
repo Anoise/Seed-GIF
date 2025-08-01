@@ -159,18 +159,11 @@ class CustomDataset(Dataset):
             df = pd.read_csv(filepath)
             df = df.drop('time',axis=1)
             data = df.values
-        elif 'SMS-IN' in name:
+        elif 'SMS' in name:
             data = np.load(filepath)[...,0]/10
-            print(data.shape, 'SMS-IN...')
-        elif 'SMS-OUT' in name:
-            data = np.load(filepath)[...,1]/10
-            print(data.shape, 'SMS-OUT...')
-        elif 'Call-IN' in name:
+            print(data.shape, 'SMS.')
+        elif 'Call' in name:
             data = np.load(filepath)[...,2]/10
-            print(data.shape, 'Call IN...')
-        elif 'Call-OUT' in name:
-            data = np.load(filepath)[...,3]/10
-            print(data.shape, 'Call OUT...')
         elif 'Internet' in name: 
             data = np.load(filepath)[...,-1]/10
             print(data.shape, 'Internet ...')
